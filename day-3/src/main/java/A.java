@@ -1,23 +1,12 @@
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class A {
-    static List<String> getInput(String filename){
-        List<String> input = new ArrayList<>();
-        try{
-            input = Files.readAllLines(Paths.get("day-3/" + filename));
-        }catch (Exception e){
-            e.printStackTrace();
-            System.err.println("Failed to open the file");
-        }
-        return input;
-    }
+    private static final String PATH = "day-3/src/main/resources/";
     public static void main(String[] args) {
-        var input = getInput("input.txt");
+        var input = InputReader.getInputByLine(PATH +"input.txt");
         List<String> parsed = new ArrayList<>();
         String regex = "mul\\(\\d{1,3},\\d{1,3}\\)";
         String regexForParsingNumbers = "\\d{1,3}";

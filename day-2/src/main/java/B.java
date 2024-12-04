@@ -8,7 +8,7 @@ public class B {
     static List<List<Integer>>getInputFromFile(String filename){
         List<List<Integer>> input = new ArrayList<>();
         try {
-            List<String> lines = Files.readAllLines(Paths.get("day-two/" + filename));
+            List<String> lines = Files.readAllLines(Paths.get("day-2/src/main/resources/" + filename));
             for (String line : lines) {
                 List<Integer> temp = new ArrayList<>();
                 String[] arr = line.split(" ");
@@ -47,9 +47,6 @@ public class B {
     }
     public static void main(String[] args) {
         var input = getInputFromFile("input.txt");
-        for(List<Integer> li : input){
-            System.out.println(li);
-        }
         int countOfSafeReports = 0;
         for(List<Integer> report : input){
             boolean isSafe = checkSafety(report);
