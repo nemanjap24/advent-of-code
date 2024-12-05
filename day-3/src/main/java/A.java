@@ -26,6 +26,5 @@ public class A {
             parsed.add(string);
         }
         System.out.println(sum);
-
     }
 }
