@@ -3,11 +3,11 @@ import java.util.List;
 
 public class A {
 
-    final static char[] XMAS = {'X','M','A','S'};
+    final static char[] XMAS = {'X', 'M', 'A', 'S'};
 
     public static void main(String[] args) {
         var leftRight = InputReader.getInputByLine("day-4/src/main/resources/test.txt");
-        var rightLeft = leftRight.reversed(); // popraviti
+        var rightLeft = reversion(leftRight); // popraviti
         var topBottom = transposeMatrix(leftRight);
         var bottomTop = topBottom.reversed(); // popraviti
 
@@ -18,26 +18,12 @@ public class A {
         var rightBottomReverseDiag = rightToBottomDiag.reversed();
 
 
-        for (var line : leftRight){
-            System.out.println(line);
-        }
-        System.out.println();
-        for(var line : rightLeft){
-            System.out.println(line);
-        }
-
 
         // left to right, findstr
         // right to left,
         // top to bottom,
         // bottom to top,
         // diagonal x 4
-
-
-
-
-
-
 
 
         // 8 for loops
@@ -98,5 +84,20 @@ public class A {
 
     private static List<String> transposeMatrix(List<String> input) {
         return new ArrayList<>();
+    }
+
+    private static List<String> reversion(List<String> input) {
+        List<String> retList = new ArrayList<>(input.size());
+
+        for (String line : input) {
+            StringBuilder currLine = new StringBuilder(line.length());
+            for (int i = 0; i < line.length(); i++) {
+                currLine.append(line.charAt(line.length() - i - 1));
+
+            }
+            retList.add(currLine.toString());
+        }
+
+        return retList;
     }
 }
