@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class A {
 
@@ -19,12 +20,11 @@ public class A {
 
 
 
-        // left to right, findstr
+
         // right to left,
-        // top to bottom,
         // bottom to top,
         // diagonal x 4
-
+        // add all of them and then findstr
 
         // 8 for loops
         // every checking its own direction
@@ -83,7 +83,17 @@ public class A {
     }
 
     private static List<String> transposeMatrix(List<String> input) {
-        return new ArrayList<>();
+        List<String> transposed = new ArrayList<>();
+        int len = input.size();
+        IntStream.range(0, len).forEach(i -> {
+            StringBuilder row = new StringBuilder();
+            for (String s : input) {
+                Character character = s.charAt(i);
+                row.append(character);
+            }
+            transposed.addLast(row.toString());
+        });
+        return transposed;
     }
 
     private static List<String> reversion(List<String> input) {
